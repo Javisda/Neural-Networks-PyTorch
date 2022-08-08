@@ -74,7 +74,7 @@ for epoch in range(num_epochs):
         fake = gen(noise)  # Generation of fake images
         # First part of the equation: log(D(real))
         disc_real = disc(real).view(-1)
-        lossD_real = criterion(disc_real, torch.ones_like(disc_real))
+        lossD_real = criterion(disc_real, torch.ones_like(disc_real)) # La segunda parte, son las labels, y como se busca se maximice a 1 (ya que sabemos que la imagen es real), de ahí los unos
         # Second part of the equation: log(1 - D(G(z)))
         disc_fake = disc(fake).view(-1)
         lossD_fake = criterion(disc_fake, torch.zeros_like(disc_fake))
@@ -83,13 +83,15 @@ for epoch in range(num_epochs):
         lossD.backward(retain_graph=True)
         opt_disc.step()
 
-        ### Train Generator: min log(1 - D(G(z)))
+        ### Train Generator: min log(1 - D(G(z)))  ==  max log(D(G(z)))
         output = disc(fake).view(-1)
         lossG = criterion(output, torch.ones_like(output))
         gen.zero_grad()
         lossG.backward()
         opt_gen.step()
 
+
+        # CODE for tensorboard
         if batch_idx == 0:
             print(f"Epoch [{epoch}/{num_epochs}] \ "
                   f"Loss D: {lossD:.4f}, Loss G: {lossG:.4f}"
