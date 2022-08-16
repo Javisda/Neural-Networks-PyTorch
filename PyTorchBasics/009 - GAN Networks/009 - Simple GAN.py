@@ -1,3 +1,5 @@
+# PARA PODER USAR TENSORBOARD, EN LA CONSOLA INSTALAMOS UN PAQUETE MEDIANTE: pip install tb-nightly
+
 # Imports
 import torch
 import torch.nn as nn
@@ -48,12 +50,12 @@ image_dim = 28 * 28 * 1 # 784
 batch_size = 32
 num_epochs = 50
 
-disc = Discriminator(image_dim=image_dim).to(device)
-gen = Generator(z_dim=z_dim, img_dim=image_dim).to(device)
+disc = Discriminator(image_dim).to(device)
+gen = Generator(z_dim, image_dim).to(device)
 fixed_noise = torch.randn((batch_size, z_dim)).to(device)
 
 transforms = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
-dataset = datasets.MNIST(root="dataset/", transform=transforms, download=False)
+dataset = datasets.MNIST(root="dataset/", transform=transforms, download=True)
 loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 opt_disc = optim.Adam(disc.parameters(), lr=lr)
 opt_gen = optim.Adam(gen.parameters(), lr=lr)

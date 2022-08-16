@@ -42,8 +42,8 @@ loader = transforms.Compose([
 
 # TODO: Solucionar lo expuesto abajo
 # DE MOMENTO FUNCIONA SOLO CON IMAGENES CON UNA PROFUNDIDAD DE BITS DE 24
-original_img = load_image("javiPlayero.jpg")
-style_img = load_image("hokusai.jpg")
+original_img = load_image("monaLisa.jpg")
+style_img = load_image("keith.jpg")
 
 # generated = torch.randn(original_img.shape, device=device, requires_grad=True)
 generated = original_img.clone().requires_grad_(True)
