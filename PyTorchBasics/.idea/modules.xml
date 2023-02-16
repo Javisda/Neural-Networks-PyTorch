@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PyTorchBasics.iml" filepath="$PROJECT_DIR$/.idea/PyTorchBasics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PyTorchProjects.iml" filepath="$PROJECT_DIR$/.idea/PyTorchProjects.iml" />
     </modules>
   </component>
 </project>
