@@ -1,1 +1,1 @@
-Recopilación de todos los archivos que he creado para aprender redes neuronales
+Compilation of the scripts that I coded to learn the basics of neural networks.
